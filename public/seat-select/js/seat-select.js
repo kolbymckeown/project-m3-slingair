@@ -1,3 +1,5 @@
+// const { flights } = require('test-data/flightSeating');
+
 const flightInput = document.getElementById("flight");
 const seatsDiv = document.getElementById("seats-section");
 const confirmButton = document.getElementById("confirm-button");
@@ -22,10 +24,26 @@ const renderSeats = (seatsInfo) => {
 			const seatAvailable = `<label class="seat"><input type="radio" name="seat" value="${seatNumber}" /><span id="${seatNumber}" class="avail">${seatNumber}</span></label>`;
 			// map function to create <li> that adds specific class
 			// TODO: render the seat availability based on the data...
-			seat.innerHTML = seatAvailable;
-			row.appendChild(seat);
+			// seat.innerHTML = seatAvailable;
+			// row.appendChild(seat);
+			// seat.map(() => {
+				//if (seatNumber % 1 === 0) {
+					seat.innerHTML = seatAvailable;
+					row.appendChild(seat);
+				// } else {
+				// 	seat.innerHTML = seatOccupied;
+				// 	row.appendChild(seat);
+				// 	// currently loads no seats (not accessing seat info properly?)
+				// }
+			// })
+			
 		}
 	}
+
+	// seatsInfo.map(() => {
+	// 	seat.classList.add("occupied")
+	// 	return seatsOccupied
+	// })
 
 	let seatMap = document.forms["seats"].elements["seat"];
 	seatMap.forEach((seat) => {
@@ -49,7 +67,7 @@ const toggleFormContent = (event) => {
 	fetch(`/flights/${flightNumber}`)
 		.then((res) => res.json())
 		.then((data) => {
-			console.log(data);
+			//console.log(data);
 			renderSeats(data);
 		});
 	// TODO: contact the server to get the seating availability
