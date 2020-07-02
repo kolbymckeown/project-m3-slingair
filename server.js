@@ -25,6 +25,15 @@ const handleReservation = (req, res) => {
   }
   reservations.push(reservationInfo)
   console.log(reservations)
+  res.json(reservationInfo)
+}
+
+const handleGetReservation = (req, res) => {
+  const { id } = req.params;
+
+  res.json(reservations.find(reservation => reservation.id === id))
+  
+  
 }
 
 express()
@@ -44,5 +53,6 @@ express()
   // endpoints
   .get('/flights/:flightNumber', handleFlight)
   .post('/reservation', handleReservation)
+  .get('/reservation/:id', handleGetReservation)
   .use((req, res) => res.send('Not Found'))
   .listen(PORT, () => console.log(`Listening on port ${PORT}`));
