@@ -9,7 +9,15 @@ fetch(`/reservation/${id}`)
 	.then((data) => data.json())
 	.then((data) => {
 		console.log(data);
-		const contentDiv = document.getElementById("content");
-		contentDiv.innerText = data.email;
+		const flightNumberDiv = document.getElementById("flightNumber");
+		const seatNumberDiv = document.getElementById("seatNumber");
+		const givenNameDiv = document.getElementById("givenName");
+		const surnameDiv = document.getElementById("surname");
+		const emailDiv = document.getElementById("email");
+		flightNumberDiv.innerText = data.flight;
+		seatNumberDiv.innerText = data.seat;
+		givenNameDiv.innerText = `${data.givenName + " " + data.surname}`;
+		// surnameDiv.innerText = data.surname;
+		emailDiv.innerText = data.email;
 		// do this for each part of the data
 	});
