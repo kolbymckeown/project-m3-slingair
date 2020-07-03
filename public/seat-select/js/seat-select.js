@@ -45,7 +45,7 @@ const renderSeats = (seatsInfo) => {
 };
 
 const toggleFormContent = (event) => {
-	const flightNumber = flightInput.value;
+	const flightNumber = flightInput.value.toUpperCase();
 	console.log("toggleFormContent: ", flightNumber);
 	fetch(`/flights/${flightNumber}`)
 		.then((res) => res.json())

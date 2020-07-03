@@ -12,9 +12,9 @@ fetch(`/reservation/${id}`)
 		const flightNumberDiv = document.getElementById("flightNumber");
 		const seatNumberDiv = document.getElementById("seatNumber");
 		const givenNameDiv = document.getElementById("givenName");
-		const surnameDiv = document.getElementById("surname");
+		// const surnameDiv = document.getElementById("surname");
 		const emailDiv = document.getElementById("email");
-		flightNumberDiv.innerText = data.flight;
+		flightNumberDiv.innerText = data.flight.toUpperCase();
 		seatNumberDiv.innerText = data.seat;
 		givenNameDiv.innerText = `${data.givenName + " " + data.surname}`;
 		// surnameDiv.innerText = data.surname;
