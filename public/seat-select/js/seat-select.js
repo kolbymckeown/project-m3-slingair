@@ -31,9 +31,11 @@ const renderSeats = (seatsInfo) => {
 
 	let seatMap = document.forms["seats"].elements["seat"];
 	seatMap.forEach((seat) => {
+		// console.log(seat)
 		seat.onclick = () => {
 			selection = seat.value;
 			seatMap.forEach((x) => {
+				// console.log(x);
 				if (x.value !== seat.value) {
 					document.getElementById(x.value).classList.remove("selected");
 				}
