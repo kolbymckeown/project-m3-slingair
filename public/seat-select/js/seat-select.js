@@ -6,11 +6,12 @@ let selection = "";
 
 const renderSeats = (seatsInfo) => {
 	document.querySelector(".form-container").style.display = "block";
-
+	console.log(seatsInfo)
 	seatsInfo.forEach((rowSeats) => {
 		const row = document.createElement("ol");
 		row.classList.add("row");
 		seatsDiv.appendChild(row);
+		console.log(rowSeats)
 		rowSeats.forEach((seat) => {
 			const seatNumber = seat.id;
 			const seatElem = document.createElement("li");

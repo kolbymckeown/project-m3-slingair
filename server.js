@@ -33,7 +33,10 @@ const handleGetReservation = (req, res) => {
 
   res.json(reservations.find(reservation => reservation.id === id))
   
-  
+}
+
+const handleRedirect = (req, res) => {
+  res.redirect('/seat-select')
 }
 
 express()
@@ -49,8 +52,9 @@ express()
   .use(express.static('public'))
   .use(bodyParser.json())
   .use(express.urlencoded({ extended: false }))
-
+  
   // endpoints
+  .get('/', handleRedirect)
   .get('/flights/:flightNumber', handleFlight)
   .post('/reservation', handleReservation)
   .get('/reservation/:id', handleGetReservation)
