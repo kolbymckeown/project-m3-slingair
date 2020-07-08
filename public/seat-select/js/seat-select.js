@@ -5,6 +5,7 @@ const confirmButton = document.getElementById("confirm-button");
 let selection = "";
 
 const renderSeats = (seatsInfo) => {
+	seatsDiv.innerHTML = "";
 	document.querySelector(".form-container").style.display = "block";
 	console.log(seatsInfo)
 	seatsInfo.forEach((rowSeats) => {
