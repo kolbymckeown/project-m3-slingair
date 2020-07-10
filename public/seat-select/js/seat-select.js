@@ -1,18 +1,19 @@
 const flightInput = document.getElementById("flight");
 const seatsDiv = document.getElementById("seats-section");
 const confirmButton = document.getElementById("confirm-button");
+const dropDown = document.getElementById("flight");
 
 let selection = "";
 
 const renderSeats = (seatsInfo) => {
 	seatsDiv.innerHTML = "";
 	document.querySelector(".form-container").style.display = "block";
-	console.log(seatsInfo)
+	console.log(seatsInfo);
 	seatsInfo.forEach((rowSeats) => {
 		const row = document.createElement("ol");
 		row.classList.add("row");
 		seatsDiv.appendChild(row);
-		console.log(rowSeats)
+		console.log(rowSeats);
 		rowSeats.forEach((seat) => {
 			const seatNumber = seat.id;
 			const seatElem = document.createElement("li");
@@ -85,7 +86,9 @@ const handleConfirmSeat = (event) => {
 	})
 		.then((data) => data.json())
 		.then((data) => {
-			window.location.replace(`/seat-select/view-reservation.html?id=${data.id}`);
+			window.location.replace(
+				`/seat-select/view-reservation.html?id=${data.id}`
+			);
 		});
 };
 
